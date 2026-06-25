@@ -1,6 +1,6 @@
 import pygame
 import sys # interacts directly with the interpreter
-import settings
+import settings # from settings.py
 
 # menu screen
 
@@ -37,13 +37,26 @@ screen = pygame.display.set_mode(
     (settings.WIDTH, settings.HEIGHT),
     pygame.RESIZABLE) # screen for sudoku
 
-draw_menu(screen)
-
 def main():
-    game = Game(screen)
 
-    while game.running:
-        settings.pygame.FPS=60
+    clock = pygame.time.Clock()
+    running = True
+    current_screen = "menu"
+
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+    
+
+    if current_screen == "menu":
+        play_button, settings_button = draw_menu(screen)
+
+    elif current_screen == "game":
+        # fart
+
+    elif current_screen == "settings":
+        # fart
     
     pygame.quit()
 
