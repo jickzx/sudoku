@@ -143,24 +143,7 @@ def draw_menu(screen):
         settings_text.get_rect(center=settings_button.center),
     )
 
-
-def draw_placeholder_screen(screen, heading):
-    """Temporary screen used until the game and settings UI are built."""
-    screen.fill(WHITE)
-    heading_font = pygame.font.SysFont(None, 64)
-    help_font = pygame.font.SysFont(None, 30)
-
-    heading_text = heading_font.render(heading, True, BLACK)
-    help_text = help_font.render("Press Escape to return", True, BLACK)
-
-    screen.blit(
-        heading_text,
-        heading_text.get_rect(center=(screen.get_width() // 2, 160)),
-    )
-    screen.blit(
-        help_text,
-        help_text.get_rect(center=(screen.get_width() // 2, 230)),
-    )
+# TODO: allow user to click on a grid and press any number from 1-9. if 0 then don't do anything
 
 
 def main():
@@ -198,8 +181,7 @@ def main():
             draw_menu(screen)
         elif current_screen == "game":
             draw_game(screen, board)
-        elif current_screen == "settings":
-            draw_placeholder_screen(screen, "Settings")
+        # elif current_screen == "settings": do this later
 
         pygame.display.flip()
         clock.tick(FPS)
